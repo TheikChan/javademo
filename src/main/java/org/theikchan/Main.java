@@ -6,6 +6,8 @@ import java.util.List;
  import static java.lang.IO.*;
 //  import static java.lang.IO.print;
 
+// Playground: https://dev.java/playground/
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -32,6 +34,24 @@ public class Main {
             }
             default -> "Unknown quarter";
         };
+    }
+
+    public double computePaymet(
+        double loanAmt,
+        double rate,
+        double futureValue,
+        int numPeriods
+    ) {
+        double interest = rate / 100.0;
+        double partial1 = Math.pow((1 + interest), - numPeriods);
+        double denominator = (1 - partial1) / interest;
+        double answer = ( -loanAmt / denominator) - ((futureValue * partial1) / denominator);
+        return answer;
+    }
+
+    // arbitrary arguments - varargs
+    public void getUsers(String... name) {
+        print(name.length);
     }
 
     public static void main(String[] args) {
