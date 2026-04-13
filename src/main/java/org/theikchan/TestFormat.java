@@ -1,0 +1,8 @@
+package org.theikchan;
+
+public class TestFormat {
+    public static void main(String[] args) {
+        long n = 461012;
+        System.out.format("%d%n", n);
+    }
+}
